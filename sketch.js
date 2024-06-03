@@ -79,7 +79,9 @@ function drawSkeleton() {
         partA = pose.keypoints[0];
     if (partA.score > 0.1) {
       push()
-      text("412730680 許家寧",partA.x-50,partA.y-50,50,50) 
+      textSize(40)
+      scale(-1,1)
+      text("412730680 許家寧",partA.x-50,partA.y-50) 
       pop()
   }
 
