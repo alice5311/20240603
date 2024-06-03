@@ -8,8 +8,8 @@ https://www.tensorflow.org/hub/tutorials/movenet
 let video, bodypose, pose, keypoint, detector;
 let poses = [];
 
-function preload()
-{horseImg = loadImage("upload_bc549284c3544930bf04fef1eb154c5d.gif");}
+function preload(){
+horseImg = loadImage("upload_bc549284c3544930bf04fef1eb154c5d.gif");}
 
 async function init() {
   const detectorConfig = {
@@ -55,81 +55,20 @@ function draw() {
   translate(cam.width, 0);
   scale(-1, 1);
   image(cam, 0, 0);
-  //push()
-  //image(horseImg,partR.x-25,partR.y-25,50,50)
-  //pop()
+
 }
 
 function drawSkeleton() {
   // Draw all the tracked landmark points
   for (let i = 0; i < poses.length; i++) {
     pose = poses[i];
-    // shoulder to wrist
-    for (j = 5; j < 9; j++) {
-      if (pose.keypoints[j].score > 0.1 && pose.keypoints[j + 2].score > 0.1) {
-        partA = pose.keypoints[j];
-        partB = pose.keypoints[j + 2];
-        line(partA.x, partA.y, partB.x, partB.y);
-      }
-    }
-    // shoulder to shoulder
-    partA = pose.keypoints[5];
-    partB = pose.keypoints[6];
-    if (partA.score > 0.1 && partB.score > 0.1) {
-      line(partA.x, partA.y, partB.x, partB.y);
-      
-    }
-    // hip to hip
-    partA = pose.keypoints[11];
-    partB = pose.keypoints[12];
-    if (partA.score > 0.1 && partB.score > 0.1) {
-      line(partA.x, partA.y, partB.x, partB.y);
-      
-    }
-    // shoulders to hips
-    partA = pose.keypoints[5];
-    partB = pose.keypoints[11];
-    if (partA.score > 0.1 && partB.score > 0.1) {
-      line(partA.x, partA.y, partB.x, partB.y);
-      
-    }
-    partA = pose.keypoints[6];
-    partB = pose.keypoints[12];
-    if (partA.score > 0.1 && partB.score > 0.1) {
-      line(partA.x, partA.y, partB.x, partB.y);
-      
-    }
-
     //eye
     partL = pose.keypoints[1];
-    partR = pose.keypoints[12];
-    if (partL.score > 0.1 ) 
+    partR = pose.keypoints[2];
+    if (partL.score > 0.1 && partR.score > 0.1 ) 
     {
       //elipse(partL.x,partL.y,50)
       image(horseImg,partL.x-25,partL.y-25,50,50)
-    }
-    if (partR.score > 0.1 ) 
-    {
-      //elipse(partR.x,partR.y,50)
-      image(horseImg,partR.x,partR.y,50,50)
-    }
-    partA = pose.keypoints[0];
-    if(partA.score>0.1)
-    {
-      fill("#ff0000")
-      elipse(partA.x,partA.y,50)
-      //fill("#ffffff")
-      //image(noseImg,partA.x-25,partA.y-25,50,50)
-    }
-    
-    // hip to foot
-    for (j = 11; j < 15; j++) {
-      if (pose.keypoints[j].score > 0.1 && pose.keypoints[j + 2].score > 0.1) {
-        partA = pose.keypoints[j];
-        partB = pose.keypoints[j + 2];
-        line(partA.x, partA.y, partB.x, partB.y);
-        
-      }
     }
   }
 }
