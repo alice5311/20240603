@@ -76,16 +76,27 @@ function drawSkeleton() {
       image(horseImg,partR.x-25,partR.y-25,50,50)
     }
     //頭頂的字
-        partA = pose.keypoints[0];
+    partA = pose.keypoints[0];
     if (partA.score > 0.1) {
-      push()
-      textSize(40)
-      scale(-1,1)
-      text("412730680許家寧",partA.x-50,partA.y-50) 
-      pop()
-  }
-
+    push()
+    textSize(40)
+    scale(-1,1)
+    text("412730680許家寧",partA.x-750,partA.y-100) 
+    pop()
+    }
+    //手腕
+    partB = pose.keypoints[9];
+    partC = pose.keypoints[10];
+    if (partB.score > 0.1  ) 
+    {
+      image(horseImg,partB.x-25,partB.y-25,30,30)
+    }
+    if (partC.score > 0.1 ) 
+    {
+      image(horseImg,partC.x-25,partC.y-25,30,30)
+    }
     
+
   }
 }
 
