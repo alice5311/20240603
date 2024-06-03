@@ -103,7 +103,7 @@ function drawSkeleton() {
     if (partL.score > 0.1 ) 
     {
       //elipse(partL.x,partL.y,50)
-      image(horseImg,partL.x-25,partL.y-25,50,50)
+      image(horseImg,partL.x+25,partL.y-25,50,50)
     }
     if (partR.score > 0.1 ) 
     {
