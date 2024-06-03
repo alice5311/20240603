@@ -75,6 +75,15 @@ function drawSkeleton() {
       //elipse(partL.x,partL.y,50)
       image(horseImg,partR.x-25,partR.y-25,50,50)
     }
+    //頭頂的字
+        partA = pose.keypoints[0];
+    if (partA.score > 0.1) {
+      push()
+      text("412730680 許家寧",partA.x-50,partA.y-50) 
+      pop()
+  }
+
+    
   }
 }
 
