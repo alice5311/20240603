@@ -62,7 +62,7 @@ function drawSkeleton() {
   // Draw all the tracked landmark points
   for (let i = 0; i < poses.length; i++) {
     pose = poses[i];
-    //eye
+    //眼睛
     partL = pose.keypoints[1];
     partR = pose.keypoints[2];
     if (partL.score > 0.1  ) 
@@ -81,7 +81,7 @@ function drawSkeleton() {
       push()
       textSize(40)
       scale(-1,1)
-      text("412730680許家寧",partA.x-width,partA.y-100) 
+      text("412730680許家寧",partA.x-100,partA.y-50) 
       pop()
   }
 
