@@ -69,6 +69,8 @@ function drawSkeleton() {
     {
       //elipse(partL.x,partL.y,50)
       image(horseImg,partL.x-25,partL.y-25,50,50)
+      image(horseImg,partR.x-25,partR.y-25,50,50)
+      
     }
   }
 }
