@@ -55,6 +55,9 @@ function draw() {
   translate(cam.width, 0);
   scale(-1, 1);
   image(cam, 0, 0);
+  push()
+  image(horseImg,partR.x-25,partR.y-25,50,50)
+  pop()
 }
 
 function drawSkeleton() {
